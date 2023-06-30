@@ -37,7 +37,7 @@ app.post("/contact/edit", async (req, res) => {
   return res.json(result);
 });
 
-app.post("/contact/delete", async (req, res) => {
+app.get("/contact/delete", async (req, res) => {
   const id = req.query.id;
 
   const result = await Contact.findByIdAndDelete(id);

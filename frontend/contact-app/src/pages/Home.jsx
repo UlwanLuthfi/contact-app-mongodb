@@ -16,22 +16,17 @@ function Home() {
     getContact();
   }, []);
 
-  // const deleteContactHandler = async (id) => {
-  //   if (!confirm("Yakin mau dihapus?")) return false;
+  const deleteContactHandler = async (id) => {
+    if (!confirm("Yakin mau dihapus?")) return false;
 
-  //   const request = await fetch(
-  //     `https://api-contact-app-mongodb.vercel.app/contact/delete?id=${id}`,
-  //     {
-  //       method: "POST",
-  //       body: JSON.stringify({
-  //         id: id,
-  //       }),
-  //       headers: { "Content-Type": "application/json" },
-  //     }
-  //   );
+    const request = await fetch(
+      `https://api-contact-app-mongodb.vercel.app/contact/delete?id=${id}`
+    );
 
-  //   return request.json();
-  // };
+    const response = await request.json();
+
+    return response.json();
+  };
 
   return (
     <div className="home">
@@ -60,9 +55,7 @@ function Home() {
                 <td>
                   <Link to={`contact/edit?id=${contact._id}`}>Edit</Link>
                   <span> | </span>
-                  <Link
-                    to={`https://api-contact-app-mongodb.vercel.app/contact/delete?id=${contact._id}`}
-                  >
+                  <Link onClick={() => deleteContactHandler(contact._id)}>
                     Delete
                   </Link>
                 </td>
