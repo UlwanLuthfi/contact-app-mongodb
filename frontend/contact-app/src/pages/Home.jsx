@@ -61,8 +61,7 @@ function Home() {
                   <Link to={`contact/edit?id=${contact._id}`}>Edit</Link>
                   <span> | </span>
                   <Link
-                    reloadDocument
-                    onClick={() => deleteContactHandler(contact._id)}
+                    to={`https://api-contact-app-mongodb.vercel.app/contact/delete?id=${contact._id}`}
                   >
                     Delete
                   </Link>
