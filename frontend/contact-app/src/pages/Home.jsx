@@ -55,10 +55,7 @@ function Home() {
                 <td>
                   <Link to={`contact/edit?id=${contact._id}`}>Edit</Link>
                   <span> | </span>
-                  <Link
-                    reloadDocument
-                    onClick={() => deleteContactHandler(contact._id)}
-                  >
+                  <Link onClick={() => deleteContactHandler(contact._id)}>
                     Delete
                   </Link>
                 </td>
