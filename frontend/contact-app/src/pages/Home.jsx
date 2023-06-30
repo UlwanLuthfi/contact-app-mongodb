@@ -25,6 +25,8 @@ function Home() {
 
     const response = await request.json();
 
+    location.reload();
+
     return response.json();
   };
 
